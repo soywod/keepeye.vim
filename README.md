@@ -2,7 +2,7 @@
 
 A Vim plugin to keep your eyes safe.
 
-![image](https://user-images.githubusercontent.com/10437171/40420681-5d851752-5e89-11e8-9c1a-67bb6f8d237e.png)
+![image](https://user-images.githubusercontent.com/10437171/40429072-0ca8f20e-5ea2-11e8-8e19-0a1a0728caf1.png)
 
 ## Introduction
 
