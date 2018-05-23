@@ -6,9 +6,9 @@ A Vim plugin to keep your eyes safe.
 
 ## Introduction
 
-KeepEye is a vim plugin that invites you to do a break after a huge coding session.
+KeepEye is a vim plugin that invites you to take a break after a huge coding session.
 
-By default, it will notify you after 1h, with the message at the middle of your status line: `SAVE YOUR EYES, DO A BREAK`.
+By default, it will notify you after 1h, with the message at the middle of your status line: `SAVE YOUR EYES, TAKE A BREAK`.
 
 ## Installation
 
@@ -46,7 +46,7 @@ To customize the KeepEye message (only if `g:keepeye_callback` is not set ):
 let g:keepeye_message = '-- CUSTOM MESSAGE --'
 ```
 
-Default value: `'SAVE YOUR EYES, DO A BREAK'`
+Default value: `'SAVE YOUR EYES, TAKE A BREAK'`
 
 To change the timer (in seconds):
 

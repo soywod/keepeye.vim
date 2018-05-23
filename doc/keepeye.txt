@@ -46,7 +46,7 @@ To customize the KeepEye message (only if `g:keepeye_callback` is not set ):
 >
   let g:keepeye_message = '-- CUSTOM MESSAGE --'
 <
-Default value: `'SAVE YOUR EYES, DO A BREAK'`
+Default value: `'SAVE YOUR EYES, TAKE A BREAK'`
 
 To change the timer (in seconds):
 >
