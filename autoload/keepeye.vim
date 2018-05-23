@@ -9,6 +9,10 @@ function! keepeye#Callback() abort
   let &statusline = l:finalmsg
 endfunction
 
+function! keepeye#CallbackWrapper(timer)
+  execute('call ' . g:keepeye_callback . '()')
+endfunction
+
 function! keepeye#Check()
   if localtime() > s:time_limit
     set statusline-=%{keepeye#Check()}
@@ -19,16 +23,7 @@ function! keepeye#Check()
 endfunction
 
 function! keepeye#Start() abort
-python3 << EOF
-import vim
-from threading import Timer
-
-timer = int(vim.eval('g:keepeye_timer'))
-callback = vim.Function(vim.eval('g:keepeye_callback'))
-
-thread = Timer(timer, callback, [])
-thread.start()
-EOF
+  call timer_start(g:keepeye_timer*1000, 'keepeye#CallbackWrapper')
 endfunction
 
 function! keepeye#Clear() abort
