@@ -21,11 +21,11 @@ USAGE                                                            *keepeye-usage*
 
 To start the timer:
 >
-  :KeepEyeStart
+  :KeepEye
 <
-To stop the timer:
+To clear the message and reset the status bar:
 >
-  :KeepEyeStop
+  :KeepEyeClear
 <
 ==============================================================================
 CONFIGURATION                                            *keepeye-configuration*

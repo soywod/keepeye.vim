@@ -1,4 +1,6 @@
 function! keepeye#Callback() abort
+  let s:statusline = &statusline
+
   let l:msg = g:keepeye_message
   let l:colshlen = &columns/2
   let l:msghlen = len(l:msg)/2
@@ -17,17 +19,22 @@ function! keepeye#Check()
 endfunction
 
 function! keepeye#Start() abort
-  let s:statusline = &statusline
-  let s:time_limit = localtime() + g:keepeye_timer
+python3 << EOF
+import vim
+from threading import Timer
 
-  if &statusline == ''
-    set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P%{keepeye#Check()}
-  else
-    set statusline+=%{keepeye#Check()}
-  endif
+timer = int(vim.eval('g:keepeye_timer'))
+callback = vim.Function(vim.eval('g:keepeye_callback'))
+
+thread = Timer(timer, callback, [])
+thread.start()
+EOF
 endfunction
 
-function! keepeye#Stop() abort
-  let &statusline = s:statusline
+function! keepeye#Clear() abort
+  if exists('s:statusline')
+    let &statusline = s:statusline
+    unlet s:statusline
+  endif
 endfunction
 
