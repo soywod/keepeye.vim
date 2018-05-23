@@ -1,0 +1,57 @@
+*keepeye.txt* - A Vim plugin to keep your eyes safe.
+==============================================================================
+CONTENTS                                                               *keepeye*
+
+  1. Install ............................................... |keepeye-install|
+  2. Usage ................................................... |keepeye-usage|
+  3. Configuration ................................... |keepeye-configuration|
+
+==============================================================================
+INSTALL                                                        *keepeye-install*
+
+Use your favorite plugin manager.
+
+- With {vim-plug}{1}
+  1. Add `Plug 'soywod/vim-keepeye'` to .vimrc
+  2. Run `:PlugInstall`
+
+                                      {1} https://github.com/junegunn/vim-plug
+==============================================================================
+USAGE                                                            *keepeye-usage*
+
+To start the timer:
+>
+  :KeepEyeStart
+<
+To stop the timer:
+>
+  :KeepEyeStop
+<
+==============================================================================
+CONFIGURATION                                            *keepeye-configuration*
+
+To automatically launch KeepEye at vim startup:
+>
+  let g:keepeye_autostart = 0 | 1
+<
+Default value: `0`
+
+To customize the KeepEye callback:
+>
+  let g:keepeye_callback = 'MyCallback'
+<
+Default value: `'keepeye#Callback'`
+
+To customize the KeepEye message (only if `g:keepeye_callback` is not set ):
+>
+  let g:keepeye_message = '-- CUSTOM MESSAGE --'
+<
+Default value: `'SAVE YOUR EYES, DO A BREAK'`
+
+To change the timer (in seconds):
+>
+  let g:keepeye_timer = 10
+<
+Default value: `3600`
+
+vim:tw=78:ts=8:ft=help:norl:
