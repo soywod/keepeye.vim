@@ -18,9 +18,9 @@ Plug 'soywod/vim-keepeye'
 
 ## Usage
 
-`:KeepEyeStart` to start the timer.
+`:KeepEyeStart` to start the timer
 
-`:KeepEyeStop` to stop the timer.
+`:KeepEyeStop` to stop the timer and reset the status bar
 
 ## Configuration
 
