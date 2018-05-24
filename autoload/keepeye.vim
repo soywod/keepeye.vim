@@ -7,6 +7,12 @@ function! keepeye#Callback() abort
   let l:finalmsg = repeat(' ', l:colshlen - l:msghlen) . l:msg
 
   let &statusline = l:finalmsg
+
+  if g:keepeye_system_notification
+    if has('unix') && !has('mac')
+      call system('notify-send ' . shellescape('KeepEye') . ' ' . shellescape(g:keepeye_message))
+    endif
+  endif
 endfunction
 
 function! keepeye#CallbackWrapper(timer)
