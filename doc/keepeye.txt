@@ -27,6 +27,10 @@ To clear the message and reset the status bar:
 >
   :KeepEyeClear
 <
+To clear the message and start the timer again
+>
+  :KeepEyeRestart
+<
 ==============================================================================
 CONFIGURATION                                            *keepeye-configuration*
 

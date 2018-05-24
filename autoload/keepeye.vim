@@ -39,3 +39,7 @@ function! keepeye#Clear() abort
   endif
 endfunction
 
+function! keepeye#Restart() abort
+  call keepeye#Clear()
+  call keepeye#Start()
+endfunction

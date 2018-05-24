@@ -22,6 +22,8 @@ Plug 'soywod/vim-keepeye'
 
 `:KeepEyeClear` to clear the message and reset the status bar
 
+`:KeepEyeRestart` to clear the message and start the timer again
+
 ## Configuration
 
 To automatically launch KeepEye at vim startup:

@@ -6,6 +6,7 @@ let g:keepeye_timer = get(g:, 'keepeye_timer', 3600)
 
 command! -range KeepEye call keepeye#Start()
 command! -range KeepEyeClear call keepeye#Clear()
+command! -range KeepEyeRestart call keepeye#Restart()
 
 if g:keepeye_autostart
   autocmd VimEnter * KeepEye
