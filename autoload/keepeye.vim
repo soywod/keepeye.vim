@@ -3,7 +3,7 @@ function! keepeye#Callback() abort
 
   let l:msg = g:keepeye_message
   let l:colshlen = &columns/2
-  let l:msghlen = len(l:msg)/2
+  let l:msghlen = strdisplaywidth(l:msg)/2
   let l:finalmsg = repeat(' ', l:colshlen - l:msghlen) . l:msg
 
   let &statusline = l:finalmsg
