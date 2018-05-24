@@ -1,6 +1,6 @@
-function! keepeye#system#Notify()
+function! keepeye#system#Notify(message)
   if has('unix') && !has('mac')
-    let l:message = substitute(g:keepeye_message, '-', '\\-', '')
+    let l:message = substitute(a:message, '-', '\\-', '')
     call system('notify-send KeepEye ' . shellescape(l:message))
   endif
 endfunction
