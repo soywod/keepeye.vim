@@ -44,6 +44,10 @@ To customize the KeepEye message (only if `g:keepeye_callback` is not set ):
 >
   let g:keepeye_message = 'SAVE YOUR EYES, TAKE A BREAK'
 <
+To play a bell sound (only if [mpv](https://mpv.io/) is installed, and only if `g:keepeye_callback` is not set)
+>
+  let g:keepeye_system_bell = v:false
+<
 To show the KeepEye message in the notification system (only Linux systems are supported):
 >
   let g:keepeye_system_notification = v:false

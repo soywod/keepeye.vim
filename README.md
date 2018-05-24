@@ -10,6 +10,8 @@ KeepEye is a vim plugin that invites you to take a break after a huge coding ses
 
 By default, it will notify you after 25min, with the message at the middle of your status line: `SAVE YOUR EYES, TAKE A BREAK`.
 
+It can also **play a bell sound**, or **show a system notification** (see the [configuration](#configuration) section).
+
 ## Installation
 
 ```viml
@@ -42,6 +44,12 @@ To customize the KeepEye message (only if `g:keepeye_callback` is not set)
 
 ```viml
 let g:keepeye_message = 'SAVE YOUR EYES, TAKE A BREAK'
+```
+
+To play a bell sound (only if [mpv](https://mpv.io/) installed, and only if `g:keepeye_callback` is not set)
+
+```viml
+let g:keepeye_system_bell = v:false
 ```
 
 To show the KeepEye message in the notification system (only on Linux systems, and only if `g:keepeye_callback` is not set)

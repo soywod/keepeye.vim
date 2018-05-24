@@ -6,7 +6,11 @@ function! keepeye#Callback() abort
   let &statusline = l:finalmsg
 
   if g:keepeye_system_notification
-    call keepeye#notification#New(g:keepeye_message)
+    call keepeye#system#Notify()
+  endif
+
+  if g:keepeye_system_bell
+    call keepeye#system#Bell()
   endif
 endfunction
 
