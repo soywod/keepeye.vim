@@ -8,7 +8,7 @@ A Vim plugin to keep your eyes safe.
 
 KeepEye is a vim plugin that invites you to take a break after a huge coding session.
 
-By default, it will notify you after 1h, with the message at the middle of your status line: `SAVE YOUR EYES, TAKE A BREAK`.
+By default, it will notify you after 25min, with the message at the middle of your status line: `SAVE YOUR EYES, TAKE A BREAK`.
 
 ## Installation
 
@@ -24,42 +24,35 @@ Plug 'soywod/vim-keepeye'
 
 ## Configuration
 
-To automatically launch KeepEye at vim startup:
+Here the default configuration:
+
+To automatically launch KeepEye at vim startup
 
 ```viml
-let g:keepeye_autostart = 0 | 1
+let g:keepeye_autostart = v:true
 ```
 
-Default value: `0`
-
-To customize the KeepEye callback:
+To customize the KeepEye callback
 
 ```viml
-let g:keepeye_callback = 'MyCallback'
+let g:keepeye_callback = 'keepeye#Callback'
 ```
 
-Default value: `'keepeye#Callback'`
-
-To customize the KeepEye message (only if `g:keepeye_callback` is not set ):
+To customize the KeepEye message (only if `g:keepeye_callback` is not set)
 
 ```viml
-let g:keepeye_message = '-- CUSTOM MESSAGE --'
+let g:keepeye_message = 'SAVE YOUR EYES, TAKE A BREAK'
 ```
 
-Default value: `'SAVE YOUR EYES, TAKE A BREAK'`
-
-To show the KeepEye message in the notification system (only Linux systems are supported):
+To show the KeepEye message in the notification system (only on Linux systems, and only if `g:keepeye_callback` is not set)
 
 ```viml
-let g:keepeye_system_notification = 0 | 1
+let g:keepeye_system_notification = v:false
 ```
 
-Default value: `0`
-
-To change the timer (in seconds):
+To change the timer (in seconds)
 
 ```viml
-let g:keepeye_timer = 10
+let g:keepeye_timer = 1500 " (25min, like the Pomodoro Technique)
 ```
 
-Default value: `3600`

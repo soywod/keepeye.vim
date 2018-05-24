@@ -1,16 +1,16 @@
 function! keepeye#Callback() abort
   let s:statusline = &statusline
 
-  let l:msg = g:keepeye_message
   let l:colshlen = &columns/2
-  let l:msghlen = strdisplaywidth(l:msg)/2
-  let l:finalmsg = repeat(' ', l:colshlen - l:msghlen) . l:msg
+  let l:msghlen = strdisplaywidth(g:keepeye_message)/2
+  let l:finalmsg = repeat(' ', l:colshlen - l:msghlen) . g:keepeye_message
 
   let &statusline = l:finalmsg
 
   if g:keepeye_system_notification
     if has('unix') && !has('mac')
-      call system('notify-send ' . shellescape('KeepEye') . ' ' . shellescape(g:keepeye_message))
+      let l:message = substitute(g:keepeye_message, '-', '\\-', '')
+      call system('notify-send KeepEye ' . shellescape(l:message))
     endif
   endif
 endfunction
