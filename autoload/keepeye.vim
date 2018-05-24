@@ -1,6 +1,4 @@
 function! keepeye#Callback() abort
-  let s:statusline = &statusline
-
   let l:colshlen = &columns/2
   let l:msghlen = strdisplaywidth(g:keepeye_message)/2
   let l:finalmsg = repeat(' ', l:colshlen - l:msghlen) . g:keepeye_message
@@ -16,6 +14,7 @@ function! keepeye#Callback() abort
 endfunction
 
 function! keepeye#CallbackWrapper(timer)
+  let s:statusline = &statusline
   execute('call ' . g:keepeye_callback . '()')
 endfunction
 
@@ -29,6 +28,7 @@ function! keepeye#Check()
 endfunction
 
 function! keepeye#Start() abort
+  call keepeye#Clear()
   call timer_start(g:keepeye_timer*1000, 'keepeye#CallbackWrapper')
 endfunction
 

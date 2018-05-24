@@ -19,7 +19,7 @@ Use your favorite plugin manager.
 ==============================================================================
 USAGE                                                            *keepeye-usage*
 
-To start the timer:
+To (re)start the timer:
 >
   :KeepEye
 <

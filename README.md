@@ -18,7 +18,7 @@ Plug 'soywod/vim-keepeye'
 
 ## Usage
 
-`:KeepEye` to start the timer
+`:KeepEye` to (re)start the timer
 
 `:KeepEyeClear` to clear the message and reset the status bar
 
