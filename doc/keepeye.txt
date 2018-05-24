@@ -48,6 +48,12 @@ To customize the KeepEye message (only if `g:keepeye_callback` is not set ):
 <
 Default value: `'SAVE YOUR EYES, TAKE A BREAK'`
 
+To show the KeepEye message in the notification system (only Linux systems are supported):
+>
+  let g:keepeye_system_notification = 0 | 1
+<
+Default value: `0`
+
 To change the timer (in seconds):
 >
   let g:keepeye_timer = 10
