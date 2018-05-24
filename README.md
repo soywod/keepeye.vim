@@ -6,6 +6,7 @@ KeepEye is a vim plugin that invites you to take a break after a huge coding ses
 
 ## What's new ?
 
+ - *05/25* - add integration with [vim-airline](https://github.com/vim-airline/vim-airline)
  - *05/24* - add bell sound feature :bell:
  - *05/23* - add system notification feature (thanks to [@stsewd](https://github.com/stsewd))
 
