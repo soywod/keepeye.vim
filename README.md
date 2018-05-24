@@ -51,7 +51,7 @@ Default value: `'SAVE YOUR EYES, TAKE A BREAK'`
 To show the KeepEye message in the notification system (only Linux systems are supported):
 
 ```viml
-  let g:keepeye_system_notification = 0 | 1
+let g:keepeye_system_notification = 0 | 1
 ```
 
 Default value: `0`
