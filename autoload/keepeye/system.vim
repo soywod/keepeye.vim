@@ -6,12 +6,9 @@ function! keepeye#system#Notify(message)
 endfunction
 
 function! keepeye#system#Bell()
-  if executable('mpv')
-    call system('mpv ' . shellescape(g:keepeye_bell_path) . '&')
-  elseif executable('mocp')
-    call system('mocp -l ' . shellescape(g:keepeye_bell_path) . '&')
-  elseif executable('cvlc')
-    call system('cvlc ' . shellescape(g:keepeye_bell_path) . ' 2> /dev/null &')
+  let l:player =  split(g:keepeye_bell_player, " ")[0]
+  if executable(l:player)
+    let output = system(g:keepeye_bell_player . ' ' . shellescape(g:keepeye_bell_path) . '&')
   endif
 endfunction
 
