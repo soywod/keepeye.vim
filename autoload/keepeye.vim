@@ -5,45 +5,26 @@ function! keepeye#Callback() abort
   let l:msghlen = strdisplaywidth(g:keepeye_message)/2
   let s:message = repeat(' ', l:colshlen - l:msghlen) . g:keepeye_message
 
-  if keepeye#hasAirline() && keepeye#isAirlineVisible()
-    AirlineToggle
-  endif
+  call keepeye#helper#DisableStatusLines()
+  call keepeye#helper#TriggerSystemEvents(s:message)
 
-  let &statusline = s:message
-
-  if g:keepeye_system_bell
-    call keepeye#system#Bell()
-  endif
-
-  if g:keepeye_system_notification
-    call keepeye#system#Notify(s:message)
-  endif
+  let &statusline = keepeye#helper#WithHighlightGroup(s:message)
 endfunction
 
 function! keepeye#CallbackWrapper(timer) abort
-  let s:finish = v:true
   let s:backup = &statusline
+  let s:finish = v:true
+
   execute('call ' . g:keepeye_callback . '()')
 endfunction
 
 function! keepeye#Clear() abort
   if s:finish
     let s:finish = v:false
+    let &statusline = s:backup
 
-    if keepeye#hasAirline() && ! keepeye#isAirlineVisible()
-      AirlineToggle
-    else
-      let &statusline = s:backup
-    endif
+    call keepeye#helper#EnableStatusLines()
   endif
-endfunction
-
-function! keepeye#hasAirline() abort
-  return exists('g:loaded_airline') && g:loaded_airline 
-endfunction
-
-function! keepeye#isAirlineVisible() abort
-  return match(&statusline, 'airline') != -1
 endfunction
 
 function! keepeye#Start() abort
