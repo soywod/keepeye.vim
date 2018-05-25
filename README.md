@@ -6,7 +6,7 @@ KeepEye is a vim plugin that invites you to take a break after a huge coding ses
 
 ## What's new ?
 
- - *05/25* - [BREAKING CHANGES] refactor options to improve repo organization
+ - *05/25* - **[BREAKING CHANGES] due to a lot of new features these days, a good refactor was mandatory to maintain more easily this plugin in the future. Check the `autoload/keepeye.vim` file to see what have changed**
  - *05/25* - add support for custom audio player (thanks to [@trmendes](https://github.com/trmendes))
  - *05/25* - add [lightline.vim](https://github.com/itchyny/lightline.vim) integration
  - *05/25* - add User hl-group support (thanks to [@kristijanhusak](https://github.com/kristijanhusak))
@@ -30,105 +30,89 @@ Plug 'soywod/vim-keepeye' " with vim-plug
 ## Configuration
 ### Basic configuration
 
-1. Launch the plugin at vim startup
+Launch the plugin at vim startup
 
 ```viml
 let g:keepeye_autostart = boolean
+" Default v:true
 ```
 
-Default: `v:true`
-
-
-2. Setup features to activate when you reach the timer
+Setup features to activate when you reach the timer
 
 ```viml
 let g:keepeye_features = ['bell', 'notification']
+" Default []
+
+" The bell feature plays a bell song (1)
+" The notification feature shows a system notification (2)
 ```
 
-Default: `[]`
-
-The `'bell'` feature plays a bell song (1)
-The `'notification'` feature shows a system notification (2)
-
-
-3. Set the message to show
+Set the message to show
 
 ```viml
 let g:keepeye_message = string
+" Default 'SAVE YOUR EYES, TAKE A BREAK'
 ```
 
-Default: `'SAVE YOUR EYES, TAKE A BREAK'`
-
-
-4. Set the work time
+Set the work time
 
 ```viml
 let g:keepeye_timer = integer
+" Default 1500 (25min)
 ```
-
-Default: `1500` (25min)
-
 
 (1) The default player used is [mpv](https://mpv.io/)
 (2) Only Linux systems are supported for now
 
 ### Advanced configuration
 
-1. Use hl user to color the statusline message (1)   *keepeye-message-hl-user*
+Use hl user to color the statusline message (1)
 
 ```viml
 let g:keepeye_message_hl_user = integer | v:null
+" Default v:null
 ```
 
-Default: `v:null`
-
-
-2. Set a custom player for the bell feature         *keepeye-feature-bell-cmd*
+Set a custom player for the bell feature
 
 ```viml
 let g:keepeye_feature_bell_cmd = string
+" Default 'mpv'
 ```
 
-Default: `'mpv'`
-
-
-3. Set custom player flags for the bell       *keepeye-feature-bell-cmd-flags*
+Set custom player flags for the bell
 
 ```viml
 let g:keepeye_feature_bell_cmd_flags = string
+" Default ''
 ```
 
-Default: `''`
-
-
-4. Set a custom audio file for the bell      *keepeye-feature-bell-audio-path*
+Set a custom audio file for the bell
 
 ```viml
 let g:keepeye_feature_bell_audio_path = string
+" Default '<PLUGIN_FOLDER>/media/bell.mp3'
 ```
-
-Default: `'<PLUGIN_FOLDER>/media/bell.mp3'`
-
 
 (1) See [examples](#examples), or `:help hl-User`
 
 ## Examples
 
-To get the message `-- BREAK TIME --` with a notification and a bell sound:
+To get the message `-- BREAK TIME --` with a notification and a bell sound
 
 ```viml
 let g:keepeye_features = ['bell', 'notification']
 let g:keepeye_message = '-- BREAK TIME --'
 ```
 
-To color your statusline in red via the hl group `User1`:
+To color your statusline in red via the hl group `User1`
 
 ```viml
-higlight User1 guifg=#ffffff guifb=#ff0000
+highlight User1 guifg=#ffffff guifb=#ff0000
 let g:keepeye_message_hl_user = 1
 ```
 
-To use [moc player](http://moc.daper.net/) to ring the bell (instead of `mpv`):
+To use [moc player](http://moc.daper.net/) to ring the bell (instead of [mpv](https://mpv.io/))
 
 ```viml
 let g:keepeye_features = ['bell']
