@@ -8,7 +8,7 @@ endfunction
 function! keepeye#system#Bell()
   let l:player =  split(g:keepeye_bell_player, " ")[0]
   if executable(l:player)
-    let output = system(g:keepeye_bell_player . ' ' . shellescape(g:keepeye_bell_path) . '&')
+    call system(g:keepeye_bell_player . ' ' . shellescape(g:keepeye_bell_path) . '&')
   endif
 endfunction
 
