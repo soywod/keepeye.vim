@@ -1,23 +1,43 @@
 *keepeye.txt* - A Vim plugin to keep your eyes safe.
-==============================================================================
-CONTENTS                                                               *keepeye*
-
-  1. Install ............................................... |keepeye-install|
-  2. Usage ................................................... |keepeye-usage|
-  3. Configuration ................................... |keepeye-configuration|
 
 ==============================================================================
-INSTALL                                                        *keepeye-install*
+CONTENTS                                                             *keepeye*
+
+  INSTALL .................................................. |keepeye-install|
+
+  USAGE ...................................................... |keepeye-usage|
+
+  CONFIGURATION ...................................... |keepeye-configuration|
+
+    BASIC CONFIGURATION ..................... |keepeye-advanced-configuration|
+      1. Launch the plugin at vim startup ................ |keepeye-autostart|
+      2. Set the message to show ........................... |keepeye-message|
+      3. Enable the system bell sound .................. |keepeye-system-bell|
+      4. Enable the system notification ........ |keepeye-system-notification|
+      5. Set the work time ................................... |keepeye-timer|
+
+    ADVANCED CONFIGURATION ........................... |keepeye-configuration|
+      1. Customize the callback ........................... |keepeye-callback|
+      2. Use hl group to color the statusline .. |keepeye-statusline-hl-group|
+      3. Set a custom player to ring the bell ...... |keepeye-system-bell-cmd|
+      4. Set custom player flags ............. |keepeye-system-bell-cmd-flags|
+
+  EXAMPLES ................................................ |keepeye-examples|
+
+==============================================================================
+INSTALLATION                                                 *keepeye-install*
 
 Use your favorite plugin manager.
 
-- With {vim-plug}{1}
+Eg. with `vim-plug` {1}:
+
   1. Add `Plug 'soywod/vim-keepeye'` to .vimrc
   2. Run `:PlugInstall`
 
-                                      {1} https://github.com/junegunn/vim-plug
+{1} https://github.com/junegunn/vim-plug
+
 ==============================================================================
-USAGE                                                            *keepeye-usage*
+USAGE                                                          *keepeye-usage*
 
 To (re)start the timer:
 >
@@ -28,49 +48,103 @@ To clear the message and reset the status bar:
   :KeepEyeClear
 <
 ==============================================================================
-CONFIGURATION                                            *keepeye-configuration*
+CONFIGURATION                                          *keepeye-configuration*
 
-Here the default configuration:
+==============================================================================
+BASIC CONFIGURATION                              *keepeye-basic-configuration*
 
-To automatically launch KeepEye at vim startup
+1. Launch the plugin at vim startup                        *keepeye-autostart*
 >
-  let g:keepeye_autostart = v:true
+    let g:keepeye_autostart = v:true | v:false
 <
-To customize the KeepEye callback:
+    Default: `v:true`
+
+
+2. Set the message to show                                   *keepeye-message*
 >
-  let g:keepeye_callback = 'keepeye#Callback'
+    let g:keepeye_message = string
 <
-To customize the KeepEye message (only if `g:keepeye_callback` is not set ):
+    Default: `'SAVE YOUR EYES, TAKE A BREAK'`
+
+
+3. Enable the system bell sound {1}                      *keepeye-system-bell*
 >
-  let g:keepeye_message = 'SAVE YOUR EYES, TAKE A BREAK'
+    let g:keepeye_system_bell = v:true | v:false
 <
-To play a bell sound (default player is [mpv](https://mpv.io/). It will play only if `g:keepeye_callback` is not set)
+    Default: `v:false`
+
+
+4. Enable the system notification {2}            *keepeye-system-notification*
 >
-  let g:keepeye_system_bell = v:false
-
-To set a custom player to play the bell sound
-
-  let g:keepeye_system_bell_cmd = 'cvlc' " It will use mplayer to play the bell
-
-In case you need to add some specific behavior to your custom player
-
-  let g:keepeye_system_bell_cmd_flags = 'flags'
-
-To show the KeepEye message in the notification system (only Linux systems are supported):
->
-  let g:keepeye_system_notification = v:false
+    let g:keepeye_system_notification = v:true | v:false
 <
-To change the timer (in seconds):
->
-  let g:keepeye_timer = 1500 " (25min, like the Pomodoro Technique)
-<
-To use specific statusline highlight group (`see :help hl-User`):
->
-  let g:keepeye_statusline_hl_group = v:null
+    Default: `v:false`
 
-  " For example, to use red background with white text, add this to vimrc:
+
+5. Set the work time                                           *keepeye-timer*
+>
+    let g:keepeye_timer = integer
+<
+    Default: `1500` (25min)
+
+
+{1} The default player used is `mpv`. See |keepeye-system-bell-cmd|
+{2} Only Linux systems are supported for now
+
+==============================================================================
+ADVANCED CONFIGURATION                        *keepeye-advanced-configuration*
+
+1. Customize the callback                                   *keepeye-callback*
+>
+    let g:keepeye_callback = string
+<
+    Default: `'keepeye#Callback'`
+
+
+2. Use hl group to color the statusline {1}      *keepeye-statusline-hl-group*
+>
+    let g:keepeye_statusline_hl_group = integer[1-9] | v:null
+<
+    Default: `v:null`
+
+
+3. Set a custom player to ring the bell              *keepeye-system-bell-cmd*
+>
+    let g:keepeye_system_bell_cmd = string
+<
+    Default: `'mpv'`
+
+
+4. Set custom player flags to ring the bell    *keepeye-system-bell-cmd-flags*
+>
+    let g:keepeye_system_bell_cmd_flags = string
+<
+    Default: `''`
+
+
+{1} See |keepeye-examples|, or `:help hl-User`
+
+==============================================================================
+EXAMPLES                                                    *keepeye-examples*
+
+To get the message `-- BREAK TIME --` with a notification and a bell sound:
+>
+  let g:keepeye_message = '-- BREAK TIME --'
+  let g:keepeye_system_bell = v:true
+  let g:keepeye_system_notification = v:true
+<
+
+To color your statusline in red via the hl group `User1`:
+>
   higlight User1 guifg=#ffffff guifb=#ff0000
   let g:keepeye_statusline_hl_group = 1
 <
 
-vim:tw=78:ts=8:ft=help:norl:
+To use `moc player` to ring the bell (instead of `mpv`):
+>
+  let g:keepeye_system_bell = v:true
+  let g:keepeye_system_bell_cmd = 'mocp'
+  let g:keepeye_system_bell_cmd_flags = '-l'
+<
+
+ vim:tw=78:ts=8:ft=help:norl:
