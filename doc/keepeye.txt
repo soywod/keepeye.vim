@@ -56,4 +56,12 @@ To change the timer (in seconds):
 >
   let g:keepeye_timer = 1500 " (25min, like the Pomodoro Technique)
 <
+To use specific statusline highlight group (`see :help hl-User1..9`) when
+showing a message, set this to the number of the higlight group you want to
+use. For example, to use red background with white text, add this to vimrc:
+>
+  hi User1 guifg=#FFFFFF guifb=#FF0000
+  let g:keepeye_statusline_hl_group = 1
+<
+
 vim:tw=78:ts=8:ft=help:norl:

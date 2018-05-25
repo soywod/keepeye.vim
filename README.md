@@ -33,6 +33,7 @@ let g:keepeye_message = 'SAVE YOUR EYES, TAKE A BREAK' " set the message to show
 let g:keepeye_system_bell = v:false                    " enable the bell sound (1)
 let g:keepeye_system_notification = v:false            " enable the system notification (2)
 let g:keepeye_timer = 1500                             " set the work time, 25min by default
+let g:keepeye_statusline_hl_group = 0                  " Use specific statusline hl group when message is shown
 ```
 1. [mpv](https://mpv.io/) is required for this feature
 2. only Linux systems are supported for this feature

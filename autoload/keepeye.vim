@@ -9,7 +9,7 @@ function! keepeye#Callback() abort
     AirlineToggle
   endif
 
-  let &statusline = s:message
+  let &statusline = s:getHighlightGroup().s:message
 
   if g:keepeye_system_bell
     call keepeye#system#Bell()
@@ -39,7 +39,7 @@ function! keepeye#Clear() abort
 endfunction
 
 function! keepeye#hasAirline() abort
-  return exists('g:loaded_airline') && g:loaded_airline 
+  return exists('g:loaded_airline') && g:loaded_airline
 endfunction
 
 function! keepeye#isAirlineVisible() abort
@@ -49,5 +49,13 @@ endfunction
 function! keepeye#Start() abort
   call keepeye#Clear()
   call timer_start(g:keepeye_timer*1000, 'keepeye#CallbackWrapper')
+endfunction
+
+function! s:getHighlightGroup() abort
+  if g:keepeye_statusline_hl_group == 0
+    return ''
+  endif
+
+  return '%'.g:keepeye_statusline_hl_group.'*'
 endfunction
 
