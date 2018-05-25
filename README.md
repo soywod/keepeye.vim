@@ -6,8 +6,9 @@ KeepEye is a vim plugin that invites you to take a break after a huge coding ses
 
 ## What's new ?
 
+ - *05/25* - add [lightline.vim](https://github.com/itchyny/lightline.vim) integration
  - *05/25* - add User hl-group support (thanks to [@kristijanhusak](https://github.com/kristijanhusak))
- - *05/25* - add integration with [vim-airline](https://github.com/vim-airline/vim-airline)
+ - *05/25* - add [vim-airline](https://github.com/vim-airline/vim-airline) integration
  - *05/24* - add bell sound feature :bell:
  - *05/23* - add system notification feature (thanks to [@stsewd](https://github.com/stsewd))
 
@@ -23,6 +24,7 @@ Plug 'soywod/vim-keepeye' " with vim-plug
 :KeepEye      " to (re)start the timer
 :KeepEyeClear " to clear the message and reset the status bar
 ```
+
 ## Configuration
 
 Here the default configuration:
