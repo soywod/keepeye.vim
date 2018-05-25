@@ -6,9 +6,9 @@ function! keepeye#system#Notify(message)
 endfunction
 
 function! keepeye#system#Bell()
-  let l:player =  split(g:keepeye_bell_player, " ")[0]
+  let l:player = substitute(g:keepeye_bell_cmd, '\s', '', 'g')
   if executable(l:player)
-    call system(g:keepeye_bell_player . ' ' . shellescape(g:keepeye_bell_path) . '&')
+    call system(l:player . ' ' . shellescape(g:keepeye_bell_cmd_flags) . ' ' . shellescape(g:keepeye_bell_path) . '&')
   endif
 endfunction
 
