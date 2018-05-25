@@ -34,8 +34,8 @@ let g:keepeye_autostart = v:true                       " launch at vim startup
 let g:keepeye_callback = 'keepeye#Callback'            " customize the callback
 let g:keepeye_message = 'SAVE YOUR EYES, TAKE A BREAK' " set the message to show
 let g:keepeye_system_bell = v:false                    " enable the bell sound (1)
-let g:keepeye_bell_cmd = 'vclc'                        " set a custom player to ring the bell
-let g:keepeye_bell_cmd_flags = 'flags'                 " set the player flags to suit your needs
+let g:keepeye_system_bell_cmd = 'vclc'                 " set a custom player to ring the bell
+let g:keepeye_system_bell_cmd_flags = 'flags'          " set the player flags to suit your needs
 let g:keepeye_system_notification = v:false            " enable the system notification (2)
 let g:keepeye_timer = 1500                             " set the work time, 25min by default
 let g:keepeye_statusline_hl_group = v:null             " use hl group to color the statusline (3)
@@ -67,6 +67,6 @@ let g:keepeye_statusline_hl_group = 1
 To use moc player to ring the bell
 ```viml
 let g:keepeye_system_bell = v:true
-let g:keepeye_bell_cmd = "mocp"
-let g:keepeye_bell_cmd_flags = '-l'
+let g:keepeye_system_bell_cmd = "mocp"
+let g:keepeye_system_bell_cmd_flags = '-l'
 ```

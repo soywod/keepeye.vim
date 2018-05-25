@@ -50,11 +50,11 @@ To play a bell sound (default player is [mpv](https://mpv.io/). It will play onl
 
 To set a custom player to play the bell sound
 
-  let g:keepeye_bell_cmd = 'cvlc' " It will use mplayer to play the bell
+  let g:keepeye_system_bell_cmd = 'cvlc' " It will use mplayer to play the bell
 
 In case you need to add some specific behavior to your custom player
 
-  let g:keepeye_bell_cmd_flags = 'flags'
+  let g:keepeye_system_bell_cmd_flags = 'flags'
 
 To show the KeepEye message in the notification system (only Linux systems are supported):
 >
