@@ -5,7 +5,7 @@ let g:keepeye_system_bell = get(g:, 'keepeye_system_bell', v:false)
 let g:keepeye_system_notification = get(g:, 'keepeye_system_notification', v:false)
 let g:keepeye_timer = get(g:, 'keepeye_timer', 1500)
 let g:keepeye_bell_path = resolve(expand('<sfile>:h') . '/../media/bell.mp3')
-let g:keepeye_statusline_hl_group = get(g:, 'keepeye_statusline_hl_group', 0)
+let g:keepeye_statusline_hl_group = get(g:, 'keepeye_statusline_hl_group', v:null)
 
 command! -range KeepEye call keepeye#Start()
 command! -range KeepEyeClear call keepeye#Clear()
