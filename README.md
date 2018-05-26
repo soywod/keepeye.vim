@@ -6,7 +6,7 @@ KeepEye is a vim plugin that invites you to take a break after a huge coding ses
 
 ## What's new ?
 
- - *05/25* - **[BREAKING CHANGES] due to a lot of new features these days, a good refactor was mandatory to maintain more easily this plugin in the future. Check the `autoload/keepeye.vim` file to see what have changed**
+ - *05/26* - **[BREAKING CHANGES] due to a lot of new features these days, a good refactor was mandatory to maintain more easily this plugin in the future. You will be notified at plugin startup if you use an obsolete option (see [plugin/keepeye.vim](https://github.com/soywod/vim-keepeye/blob/177b77d688119bc84cb0c41e91f30e0f99ebbe9a/plugin/keepeye.vim#L30-L54))**
  - *05/25* - add support for custom audio player (thanks to [@trmendes](https://github.com/trmendes))
  - *05/25* - add [lightline.vim](https://github.com/itchyny/lightline.vim) integration
  - *05/25* - add User hl-group support (thanks to [@kristijanhusak](https://github.com/kristijanhusak))
@@ -37,17 +37,18 @@ let g:keepeye_autostart = boolean
 " Default v:true
 ```
 
-Setup features to activate when you reach the timer
+Setup features to activate when reach the timer
 
 ```viml
-let g:keepeye_features = ['bell', 'notification']
-" Default []
+let g:keepeye_features = ['bell', 'notification', 'statusline']
+" Default ['statusline']
 
 " The bell feature plays a bell song (1)
 " The notification feature shows a system notification (2)
+" The statusline feature put a message in your statusline
 ```
 
-Set the message to show
+Set the message to show (used by notification and statusline features)
 
 ```viml
 let g:keepeye_message = string
@@ -62,6 +63,7 @@ let g:keepeye_timer = integer
 ```
 
 (1) The default player used is [mpv](https://mpv.io/)
+
 (2) Only Linux systems are supported for now
 
 ### Advanced configuration
@@ -109,6 +111,7 @@ To color your statusline in red via the hl group `User1`
 
 ```viml
 highlight User1 guifg=#ffffff guifb=#ff0000
+let g:keepeye_features = ['statusline']
 let g:keepeye_message_hl_user = 1
 ```
 

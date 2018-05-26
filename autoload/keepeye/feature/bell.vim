@@ -9,3 +9,7 @@ function! keepeye#feature#bell#Activate()
   call system(l:cmd)
 endfunction
 
+function! keepeye#feature#bell#Desactivate()
+  " Nothing to do
+endfunction
+

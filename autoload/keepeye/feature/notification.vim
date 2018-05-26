@@ -5,3 +5,7 @@ function! keepeye#feature#notification#Activate()
   endif
 endfunction
 
+function! keepeye#feature#notification#Desactivate()
+  " Nothin to do
+endfunction
+

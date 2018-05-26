@@ -59,17 +59,19 @@ BASIC CONFIGURATION                              *keepeye-basic-configuration*
     Default: `v:true`
 
 
-2. Setup features to activate when you reach the timer      *keepeye-features*
+2. Setup features to activate when reach the timer          *keepeye-features*
 >
-    let g:keepeye_features = ['bell', 'notification']
+    let g:keepeye_features = ['bell', 'notification', 'statusline']
 <
-    Default: `[]`
+    Default: `['statusline']`
 
     The `'bell'` feature plays a bell song {1}
     The `'notification'` feature shows a system notification {2}
+    The `'statusline'` feature put a message in your statusline
 
 
 3. Set the message to show                                   *keepeye-message*
+   (used by notification and statusline features)
 >
     let g:keepeye_message = string
 <
@@ -130,7 +132,8 @@ To get the message `-- BREAK TIME --` with a notification and a bell sound:
 
 To color your statusline in red via the hl group `User1`:
 >
-  higlight User1 guifg=#ffffff guifb=#ff0000
+  highlight User1 guifg=#ffffff guifb=#ff0000
+  let g:keepeye_features = ['statusline']
   let g:keepeye_message_hl_user = 1
 <
 

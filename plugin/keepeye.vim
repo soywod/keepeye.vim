@@ -1,7 +1,7 @@
 " Basic options ==============================================================
 
 let g:keepeye_autostart = get(g:, 'keepeye_autostart', v:true)
-let g:keepeye_features = get(g:, 'keepeye_features', [])
+let g:keepeye_features = get(g:, 'keepeye_features', ['statusline'])
 let g:keepeye_message = get(g:, 'keepeye_message', 'SAVE YOUR EYES, TAKE A BREAK')
 let g:keepeye_timer = get(g:, 'keepeye_timer', 1500)
 
@@ -55,8 +55,8 @@ endif
 
 " Commands ===================================================================
 
-command! -range KeepEye call keepeye#Start()
-command! -range KeepEyeClear call keepeye#Clear()
+command! -range KeepEye call keepeye#core#Start()
+command! -range KeepEyeClear call keepeye#core#DesactivateFeatures()
 
 if g:keepeye_autostart
   autocmd VimEnter * KeepEye
