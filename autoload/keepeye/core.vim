@@ -4,12 +4,12 @@ function! keepeye#core#ActivateFeatures(timer) abort
   call s:ToggleFeatures('Activate')
 endfunction
 
-function! keepeye#core#DesactivateFeatures() abort
-  call s:ToggleFeatures('Desactivate')
+function! keepeye#core#DeactivateFeatures() abort
+  call s:ToggleFeatures('Deactivate')
 endfunction
 
 function! keepeye#core#Start() abort
-  call keepeye#core#DesactivateFeatures()
+  call keepeye#core#DeactivateFeatures()
   call timer_start(g:keepeye_timer * 1000, 'keepeye#core#ActivateFeatures')
 endfunction
 
