@@ -56,7 +56,7 @@ endif
 " Commands ===================================================================
 
 command! -range KeepEye call keepeye#core#Start()
-command! -range KeepEyeClear call keepeye#core#DesactivateFeatures()
+command! -range KeepEyeClear call keepeye#core#DeactivateFeatures()
 
 if g:keepeye_autostart
   autocmd VimEnter * KeepEye

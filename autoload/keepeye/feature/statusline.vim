@@ -11,7 +11,7 @@ function! keepeye#feature#statusline#Activate()
   let s:finish = v:true
 endfunction
 
-function! keepeye#feature#statusline#Desactivate()
+function! keepeye#feature#statusline#Deactivate()
   if ! s:finish | return | endif
   let &statusline = s:backup
   call s:EnableProviderStatusLines()
